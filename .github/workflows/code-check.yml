@@ -67,4 +67,4 @@ jobs:
       - name: Install dependencies and type-check
         run: |
           pnpm install
-          pnpm exec tsc --noEmit
+          pnpm exec astro check
