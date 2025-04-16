@@ -19,7 +19,7 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: "lts/*"
-          package-manager: 10.8.1
+          package-manager: pnpm@latest
 
   deploy:
     needs: build
