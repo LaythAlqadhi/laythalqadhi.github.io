@@ -1,0 +1,77 @@
+---
+import { Code } from "astro:components"
+
+const code = `const fullName = "Layth Alqadhi";
+const avatar = "https://github.com/LaythAlqadhi.png";
+const role = "Web Developer";
+const location = "Erbil, Iraq";
+const email = "laythalqadhi@gmail.com";
+
+const skills = {
+  languages: ["HTML", "CSS", "JavaScript", "TypeScript", "PHP"],
+  frontend: [
+    "Astro",
+    "React",
+    "Next.js",
+    "Redux",
+    "CSS Modules",
+    "Tailwind CSS",
+  ],
+  backend: [
+    "Node.js",
+    "Express.js",
+    "Next.js",
+    "MongoDB",
+    "SQL",
+    "Redis",
+    "Prisma",
+    "Sequelize",
+    "Pug/Jade",
+  ],
+  testing: ["Jest", "Vitest", "React Testing Library", "SuperTest", "Postman"],
+  devTools: [
+    "Git",
+    "GitHub",
+    "NPM",
+    "PNPM",
+    "Vite",
+    "Webpack",
+    "Adobe Photoshop",
+    "Adobe Illustrator",
+    "Figma",
+  ],
+};
+
+const interests = ["Programming", "Design", "Photography", "Learning"];
+
+const socialMedia = {
+  gitHub: "https://github.com/LaythAlqadhi",
+  linkedIn: "https://www.linkedin.com/in/laythalqadhi",
+  x: "https://x.com/laythalqadhi",
+};
+
+`
+---
+
+<section>
+  <Code code={code} lang="js" wrap={true} theme="dark-plus" />
+</section>
+
+<style is:global>
+  pre.astro-code {
+    padding: 1rem;
+  }
+
+  pre.astro-code code {
+    counter-reset: step;
+    counter-increment: step 0;
+  }
+
+  pre.astro-code code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    color: var(--color-gray-600);
+    display: inline-block;
+    width: 2rem;
+  }
+</style>
