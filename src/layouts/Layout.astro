@@ -10,10 +10,19 @@ import "@/styles/globals.css"
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
     <meta content={Astro.generator} name="generator" />
     <title>Layth Alqadhi</title>
+    <script is:inline>
+      // Set the current theme based on localStorage or media
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      )
+    </script>
   </head>
-  <body>
-    <main>
-      <slot />
-    </main>
+  <body
+    class="min-h-svh w-full flex flex-col space-y-3 pt-6 bg-background text-foreground antialiased overscroll-none max-sm:px-6"
+  >
+    <slot />
   </body>
 </html>

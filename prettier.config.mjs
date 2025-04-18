@@ -28,7 +28,7 @@ const config = {
     "",
     "^(astro/(.*)$)|^(astro$)",
     "<THIRD_PARTY_MODULES>",
-    "^@tabler/icons(-react)?(/(.*)$)?",
+    "^@tabler/icons(.*)$",
     "",
     ".css$",
     "",

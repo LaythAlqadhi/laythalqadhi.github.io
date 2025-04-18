@@ -1,0 +1,35 @@
+---
+import Snippets from "./Snippets.astro"
+---
+
+<main class="max-w-prose w-full mx-auto">
+  <div class="mb-3">
+    <h1 class="text-lg font-semibold">About</h1>
+    <p class="text-muted-foreground">
+      A self-taught software developer on a perpetual learning journey. I firmly
+      believe that in the face of doubt, self-belief becomes our most valuable
+      asset. Passionate about building meaningful products and contributing to
+      open-source.
+    </p>
+  </div>
+  <Snippets />
+</main>
+
+<style is:inline>
+  pre.astro-code {
+    padding: calc(var(--spacing) * 6);
+  }
+
+  pre.astro-code code {
+    counter-reset: step;
+    counter-increment: step 0;
+  }
+
+  pre.astro-code code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    color: var(--color-muted-foreground);
+    display: inline-block;
+    width: 2rem;
+  }
+</style>

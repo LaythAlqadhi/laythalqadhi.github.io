@@ -3,6 +3,7 @@ import { fileURLToPath } from "url"
 
 import { includeIgnoreFile } from "@eslint/compat"
 import { FlatCompat } from "@eslint/eslintrc"
+import eslintPluginAstro from "eslint-plugin-astro"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -14,15 +15,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   includeIgnoreFile(gitignorePath),
-  ...compat.extends("plugin:astro/recommended"),
-  {
-    files: ["*.astro"],
-    parser: "astro-eslint-parser",
-    parserOptions: {
-      parser: "@typescript-eslint/parser",
-      extraFileExtensions: [".astro"],
-    },
-  },
+  ...eslintPluginAstro.configs["flat/recommended"],
 ]
 
 export default eslintConfig

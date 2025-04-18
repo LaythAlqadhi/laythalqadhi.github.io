@@ -1,0 +1,135 @@
+---
+import { Code } from "astro:components"
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import WindowControls from "./WindowControls.astro"
+
+const snippets = [
+  {
+    title: "Skills",
+    content: `{
+  "languages": [
+    "HTML", 
+    "CSS", 
+    "JavaScript", 
+    "TypeScript", 
+    "PHP"
+  ],
+  "frontend": [
+    "Astro",
+    "React",
+    "Next.js",
+    "Redux",
+    "CSS Modules",
+    "Tailwind CSS"
+  ],
+  "backend": [
+    "Node.js",
+    "Express.js",
+    "Next.js",
+    "MongoDB",
+    "SQL",
+    "Redis",
+    "Prisma",
+    "Sequelize",
+    "Pug/Jade"
+  ],
+  "testing": [
+    "Jest",
+    "Vitest",
+    "React Testing Library",
+    "SuperTest",
+    "Postman"
+  ],
+  "devTools": [
+    "Git",
+    "GitHub",
+    "GitHub Actions",
+    "Vercel",
+    "NPM",
+    "PNPM",
+    "Vite",
+    "Webpack",
+    "Adobe Photoshop",
+    "Adobe Illustrator",
+    "Figma"
+  ]
+}
+`,
+  },
+  {
+    title: "Projects",
+    content: `{
+  "email": "laythalqadhi@gmail.com",
+  "socialMedia": {
+    "gitHub": "https://github.com/laythalqadhi",
+    "linkedIn": "https://www.linkedin.com/in/laythalqadhi",
+    "x": "https://x.com/laythalqadhi"
+  }
+}
+`,
+  },
+  {
+    title: "Contact",
+    content: `{
+  "Shadboard": {
+    "repo": "https://github.com/Qualiora/shadboard",
+    "preview": "https://shadboard.vercel.app",
+    "description": "Shadboard is an open-source admin dashboard template built with Next.js 15 and Shadcn/ui components for scalable, user-friendly web apps. It's free for the community to use, learn from, and contribute to."
+  }
+}
+`,
+  },
+] as const
+---
+
+<section>
+  <Tabs
+    defaultValue="astro"
+    defaultValue={snippets[0].title}
+    class="border rounded-md"
+  >
+    <TabsList class="border-b rounded-b-none">
+      {
+        snippets.map((snippet) => (
+          <TabsTrigger value={snippet.title}>{snippet.title}</TabsTrigger>
+        ))
+      }
+      <WindowControls />
+    </TabsList>
+    {
+      snippets.map((snippet) => (
+        <TabsContent
+          value={snippet.title}
+          class="my-0 rounded-b-md overflow-hidden"
+        >
+          <Code
+            code={snippet.content}
+            lang="json"
+            theme="catppuccin-latte"
+            class="bg-muted!"
+          />
+        </TabsContent>
+      ))
+    }
+  </Tabs>
+</section>
+
+<style is:inline>
+  pre.astro-code {
+    padding: calc(var(--spacing) * 6);
+  }
+
+  pre.astro-code code {
+    counter-reset: step;
+    counter-increment: step 0;
+  }
+
+  pre.astro-code code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    color: var(--color-muted-foreground);
+    display: inline-block;
+    width: 2rem;
+  }
+</style>
