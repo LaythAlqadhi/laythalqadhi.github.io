@@ -1,8 +1,6 @@
 ---
-import Bulb from "@tabler/icons/outline/bulb.svg"
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+import ToggleThemeButton from "./ToggleThemeButton.astro"
 ---
 
 <header class="max-w-prose w-full flex items-center gap-3 pt-3 mx-auto">
@@ -15,24 +13,5 @@ import { Button } from "@/components/ui/button"
     <span class="text-muted-foreground">Software Developer</span>
     <span class="text-muted-foreground">Erbil, Iraq</span>
   </div>
-  <Button
-    variant="outline"
-    size="icon"
-    class="self-start ms-auto"
-    aria-label="Toggle theme"
-    onclick="toggleTheme()"><Bulb class="size-5!" /></Button
-  >
+  <ToggleThemeButton />
 </header>
-
-<script is:inline>
-  function toggleTheme() {
-    const isDark = document.documentElement.classList.contains("dark")
-    if (isDark) {
-      document.documentElement.classList.remove("dark")
-      localStorage.theme = "light"
-    } else {
-      document.documentElement.classList.add("dark")
-      localStorage.theme = "dark"
-    }
-  }
-</script>

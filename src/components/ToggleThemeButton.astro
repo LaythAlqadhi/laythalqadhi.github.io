@@ -1,0 +1,26 @@
+---
+import Bulb from "@tabler/icons/outline/bulb.svg"
+
+import { Button } from "@/components/ui/button"
+---
+
+<Button
+  variant="outline"
+  size="icon"
+  class="self-start ms-auto"
+  aria-label="Toggle theme"
+  onclick="toggleTheme()"><Bulb class="size-5!" /></Button
+>
+
+<script is:inline>
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.contains("dark")
+    if (isDark) {
+      document.documentElement.classList.remove("dark")
+      localStorage.theme = "light"
+    } else {
+      document.documentElement.classList.add("dark")
+      localStorage.theme = "dark"
+    }
+  }
+</script>
