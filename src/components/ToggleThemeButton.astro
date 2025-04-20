@@ -1,5 +1,6 @@
 ---
-import Bulb from "@tabler/icons/outline/bulb.svg"
+import MoonStars from "@tabler/icons/outline/moon-stars.svg"
+import Sun from "@tabler/icons/outline/sun.svg"
 
 import { Button } from "@/components/ui/button"
 ---
@@ -7,9 +8,9 @@ import { Button } from "@/components/ui/button"
 <Button
   variant="outline"
   size="icon"
-  class="self-start ms-auto"
+  class="self-start ms-auto dark:[&>svg]:first:hidden not-dark:[&>svg]:last:hidden"
   aria-label="Toggle theme"
-  onclick="toggleTheme()"><Bulb class="size-5!" /></Button
+  onclick="toggleTheme()"><Sun /><MoonStars /></Button
 >
 
 <script is:inline>
